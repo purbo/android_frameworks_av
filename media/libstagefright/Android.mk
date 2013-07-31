@@ -98,7 +98,12 @@ LOCAL_SRC_FILES += \
 ifeq ($(TARGET_QCOM_MEDIA_VARIANT),caf)
 LOCAL_C_INCLUDES += \
         $(TOP)/hardware/qcom/media-caf/mm-core/inc
-else
+endif
+ifeq ($(TARGET_QCOM_MEDIA_VARIANT),legacy)
+LOCAL_C_INCLUDES += \
+        $(TOP)/hardware/qcom/media-legacy/mm-core/inc
+endif
+ifeq ($(TARGET_QCOM_MEDIA_VARIANT),)
 LOCAL_C_INCLUDES += \
         $(TOP)/hardware/qcom/media/mm-core/inc
 endif

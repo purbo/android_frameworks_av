@@ -55,10 +55,15 @@ LOCAL_C_INCLUDES :=                                                 \
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
     ifeq ($(TARGET_QCOM_MEDIA_VARIANT),caf)
     LOCAL_C_INCLUDES += \
-            $(TOP)/hardware/qcom/media-caf/mm-core/inc
-    else
+        $(TOP)/hardware/qcom/media-caf/mm-core/inc
+    endif
+    ifeq ($(TARGET_QCOM_MEDIA_VARIANT),legacy)
     LOCAL_C_INCLUDES += \
-            $(TOP)/hardware/qcom/media/mm-core/inc
+        $(TOP)/hardware/qcom/media-legacy/mm-core/inc
+    endif
+    ifeq ($(TARGET_QCOM_MEDIA_VARIANT),)
+    LOCAL_C_INCLUDES += \
+        $(TOP)/hardware/qcom/media/mm-core/inc
     endif
 endif
 
